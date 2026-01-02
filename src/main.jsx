@@ -8,7 +8,7 @@ import Home from './assets/Pages/Home.jsx';
 import MainLayout from './MainLayout.jsx';
 import Applications from './assets/Pages/Applications.jsx';
 import AppDetails from './assets/Pages/AppDetails.jsx';
-
+import { ToastContainer } from 'react-toastify';
 import ErrorLayout from './ErrorLayout.jsx';
 
 
@@ -41,5 +41,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router} />
+    <ToastContainer />
   </StrictMode>,
+  
 )

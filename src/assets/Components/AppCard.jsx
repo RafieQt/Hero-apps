@@ -6,9 +6,9 @@ import { Link } from 'react-router';
 
 const AppCard = ({ app }) => {
     return (
-        <div>
+        <div className='m-2 mx-auto'>
             <Link to={`/Applications/${app.id}`}>
-                <div className='p-4 w-87 h-fit rounded-xl bg-white hover:cursor-pointer'>
+                <div className='p-4 w-90 md:w-87 h-fit rounded-xl bg-white hover:cursor-pointer'>
                     <img className='rounded-xl h-79 w-full mx-auto' src={app.image} alt="" />
                     <p className='text-xl text-[#001931] font-medium pb-4 pt-4'>{app.title}</p>
                     <div className='flex justify-between '>

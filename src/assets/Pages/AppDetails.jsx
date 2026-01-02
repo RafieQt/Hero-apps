@@ -1,46 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData, useParams } from 'react-router';
 import { Bar, BarChart, Tooltip, XAxis, YAxis } from 'recharts';
 import download from '../assets/icon-downloads.png'
 import rating from '../assets/icon-ratings.png'
 import review from '../assets/icon-review.png'
+import { toast } from 'react-toastify';
 
 
 const AppDetails = () => {
 
     const { id } = useParams();
     const data = useLoaderData();
+    const [disabled, setDisabled] = useState(false);
+
+    const handleClick = ()=>{
+        toast.success("Download complete!");
+        setDisabled(true);
+    }
 
     const filterData = data.find((app) => app.id === Number(id));
 
     return (
         <div className='px-30'>
-            <div className='flex gap-10 pt-20 pb-20'>
+            <div className='flex flex-col md:flex-row gap-10 pt-20 pb-20'>
                 <div>
-                    <img className='w-87 h-87' src={filterData.image} alt="" />
+                    <img className='md:w-87 md:h-87 w-100' src={filterData.image} alt="" />
                 </div>
                 <div className='w-full'>
                     <h1 className='text-4xl font-bold text-[#001931]'>{filterData.title}</h1>
                     <p>Developed by: {filterData.companyName}</p>
                     <hr className='border-black/30 my-7 border-0.5 w-full' />
-                    <div className='flex justify-start gap-11'>
+                    <div className='flex items-center flex-row justify-center  md:justify-start gap-11'>
                         <div>
-                            <img className='w-10 h-10' src={download} alt="" />
-                            <p className='text-[#627382]'>Downloads</p>
-                            <h3 className='text-3xl text-[#001931] font-bold'>{filterData.downloads}</h3>
+                            <img className='w-10 h-10 mx-auto md:start-0 ' src={download} alt="" />
+                            <p className='text-[#627382] md:start-0 text-center'>Downloads</p>
+                            <h3 className='text-3xl text-[#001931] font-bold  md:start-0 text-center'>{filterData.downloads}</h3>
                         </div>
                         <div>
-                            <img className='w-10 h-10' src={rating} alt="" />
-                            <p className='text-[#627382]'>Average Ratings</p>
-                            <h3 className='text-3xl text-[#001931] font-bold'>{filterData.ratingAvg}</h3>
+                            <img className='w-10 h-10 mx-auto md:start-0 ' src={rating} alt="" />
+                            <p className='text-[#627382] md:start-0 text-center'>Average Ratings</p>
+                            <h3 className='text-3xl text-[#001931] font-bold md:start-0 text-center'>{filterData.ratingAvg}</h3>
                         </div>
                         <div>
-                            <img className='w-10 h-10' src={review} alt="" />
-                            <p className='text-[#627382]'>Total Reviews</p>
-                            <h3 className='text-3xl text-[#001931] font-bold'>{filterData.reviews}</h3>
+                            <img className='w-10 h-10 mx-auto md:start-0 ' src={review} alt="" />
+                            <p className='text-[#627382] md:start-0 text-center'>Total Reviews</p>
+                            <h3 className='text-3xl text-[#001931] font-bold md:start-0 text-center'>{filterData.reviews}</h3>
                         </div>
                     </div>
-                    <button className='btn bg-[#00D390] text-white px-3.5 py-5 w-59 h-12 mt-7.5'>Install Now ({filterData.size}MB)</button>
+                    <button disabled={disabled} onClick={handleClick} className={`btn bg-[#00D390] text-white px-3.5 py-5 w-59 h-12 mt-7.5 md:start-0 mx-auto ${disabled ? "bg-gray-500 cursor-not-allowed" : "bg-[#00D390]"}`}>Install Now ({filterData.size}MB)</button>
                 </div>
             </div>
             <hr className='border-black/30 mb-10 border-0.5 w-full' />

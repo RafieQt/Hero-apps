@@ -32,12 +32,12 @@ const Applications = () => {
                             <h3 className='text-[#001931] text-center text-5xl font-bold pt-20 pb-4'>Our All Applications</h3>
                             <p className='text-[#627382] text-center text-xl pb-10'>Explore All Apps on the Market developed by us. We code for Millions</p>
                         </div>
-                        <div className='w-[75%] mx-auto'>
-                            <div className='flex justify-between pb-4'>
+                        <div className='mx-auto md:w-[75%] '>
+                            <div className='flex gap-3 flex-col md:flex-row md:justify-between pb-4'>
                                 <h5 className='text-[#001931] text-2xl font-semibold '>({apps.length}) Apps Found</h5>
-                                <input onChange={HandleSearch} type="search" name="" className='w-100 text-[#627382] border-[#d2d2d2] border rounded-r-sm' placeholder=' Search Apps' id="" />
+                                <input onChange={HandleSearch} type="search" name="" className='w-50 md:w-100 text-[#627382] border-[#d2d2d2] border rounded-r-sm' placeholder=' Search Apps' id="" />
                             </div>
-                            <div className='grid grid-cols-4 container mx-auto gap-2'>
+                            <div className='grid grid-cols-1 md:grid-cols-4 container mx-auto gap-2'>
                                 {apps.map(app => <AppCard app={app}></AppCard>)}
                             </div>
                         </div>
