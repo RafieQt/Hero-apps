@@ -38,7 +38,9 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn bg-linear-to-br from-[#632EE3] to-[#9F62F2] text-white"> <img src={git} alt="" />Contribution</a>
+                    <Link to="https://github.com/RafieQt/Hero-apps">
+                        <a className="btn bg-linear-to-br from-[#632EE3] to-[#9F62F2] text-white"> <img src={git} alt="" />Contribution</a>
+                    </Link>
                 </div>
             </div>
         </div>
