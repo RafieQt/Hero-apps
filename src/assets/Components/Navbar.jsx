@@ -23,8 +23,10 @@ const Navbar = () => {
                             <li><a>Installation</a></li>
                         </ul>
                     </div>
-                    <img src={logo} className='h-8 p-0 m-0' alt="" />
-                    <a className="btn btn-ghost text-xl p-0 m-0 bg-linear-to-br from-[#632EE3] via-[#8148EB] to-[#9F62F2] bg-clip-text text-transparent">HERO.IO</a>
+                    <Link className='flex gap-2' to='/'>
+                        <img src={logo} className='h-8 p-0 m-0' alt="" />
+                        <a className="text-xl p-0 m-0 bg-linear-to-br from-[#632EE3] via-[#8148EB] to-[#9F62F2] bg-clip-text text-transparent">HERO.IO</a>
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

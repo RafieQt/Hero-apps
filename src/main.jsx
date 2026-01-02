@@ -7,12 +7,16 @@ import { RouterProvider } from "react-router/dom";
 import Home from './assets/Pages/Home.jsx';
 import MainLayout from './MainLayout.jsx';
 import Applications from './assets/Pages/Applications.jsx';
+import AppDetails from './assets/Pages/AppDetails.jsx';
+
+import ErrorLayout from './ErrorLayout.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
+    errorElement: <ErrorLayout></ErrorLayout>,
     children:[
       {
         path: "/",
@@ -22,6 +26,10 @@ const router = createBrowserRouter([
       {
         path:"Applications",
         element:<Applications></Applications>,
+        loader: ()=> fetch("/data.json")
+      },{
+        path:"Applications/:id",
+        element:<AppDetails></AppDetails>,
         loader: ()=> fetch("/data.json")
       }
     ]
