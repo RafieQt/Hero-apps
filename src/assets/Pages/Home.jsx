@@ -15,8 +15,12 @@ const Home = () => {
                 At HERO.IO, we craft innovative apps designed to make everyday life simpler, smarter, and more exciting.<br />Our goal is to turn your ideas into digital experiences that truly make an impact.
             </p>
             <div className='flex items-center flex-col md:flex-row md:justify-center gap-4 my-10'>
-                <button className='text-center hover:cursor-pointer text-xl font-semibold border border-[#d2d2d2] rounded-md p-4 h-14 w-50 py-1 '><img src={google} className='w-7 h-7 inline' alt="" /> Google Play</button>
-                <button className='text-center hover:cursor-pointer text-xl font-semibold border border-[#d2d2d2] rounded-md p-4 h-14 w-50 py-1 '><img src={apple} className='w-7 h-7 inline' alt="" /> App Store</button>
+                <Link to="https://play.google.com/store/games?device=windows&pli=1">
+                    <button className='text-center hover:cursor-pointer text-xl font-semibold border border-[#d2d2d2] rounded-md p-4 h-14 w-50 py-1 '><img src={google} className='w-7 h-7 inline' alt="" /> Google Play</button>
+                </Link>
+                <Link to="https://www.apple.com/app-store/">
+                    <button className='text-center hover:cursor-pointer text-xl font-semibold border border-[#d2d2d2] rounded-md p-4 h-14 w-50 py-1 '><img src={apple} className='w-7 h-7 inline' alt="" /> App Store</button>
+                </Link>
             </div>
             <img className='mx-auto ' src={hero} alt="" />
             <div className='w-full h-fit p-8 md:h-100 bg-linear-to-r from-[#632ee3] via-[#8148eb] to-[#9f62f2] mb-20'>
